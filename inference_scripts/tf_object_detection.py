@@ -23,13 +23,15 @@ from matplotlib import pyplot as plt
 from PIL import Image
 
 # This is needed since the notebook is stored in the object_detection folder.
+
 sys.path.append("..")
 from object_detection.utils import ops as utils_ops
 
 if tf.__version__ < '1.4.0':
   raise ImportError('Please upgrade your tensorflow installation to v1.4.* or later!')
 
-
+CONFIDENCE=0.35
+DPI=96
 # ## Env setup
 
 # In[2]:
@@ -136,10 +138,14 @@ def load_image_into_numpy_array(image):
 # image2.jpg
 # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
 PATH_TO_TEST_IMAGES_DIR = 'test_images'
-TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3) ]
-
+tmpImgs = os.listdir(PATH_TO_TEST_IMAGES_DIR)
+TEST_IMAGE_PATHS = []
+for img in tmpImgs:
+  TEST_IMAGE_PATHS.append(os.path.join(PATH_TO_TEST_IMAGES_DIR, img))
+# TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3) ]
+print (TEST_IMAGE_PATHS)
 # Size, in inches, of the output images.
-IMAGE_SIZE = (12, 8)
+# IMAGE_SIZE = (300/DPI, 300/DPI)
 
 
 # In[46]:
@@ -193,9 +199,9 @@ def run_inference_for_single_image(image, graph):
 
 
 # In[47]:
-
 for image_path in TEST_IMAGE_PATHS:
   image = Image.open(image_path)
+  width, height = image.size
   # the array based representation of the image will be used later in order to prepare the
   # result image with boxes and labels on it.
   image_np = load_image_into_numpy_array(image)
@@ -212,8 +218,19 @@ for image_path in TEST_IMAGE_PATHS:
       category_index,
       instance_masks=output_dict.get('detection_masks'),
       use_normalized_coordinates=True,
-      line_thickness=8)
-  plt.figure(figsize=IMAGE_SIZE)
+      line_thickness=5)
+  
+
+  for i,score in enumerate(output_dict['detection_scores']):
+    if score > CONFIDENCE:
+      org_detection_box = list(output_dict['detection_boxes'][i])
+      output_dict['detection_boxes'][i][0]=org_detection_box[1]*width
+      output_dict['detection_boxes'][i][1]=org_detection_box[0]*height
+      output_dict['detection_boxes'][i][2]=org_detection_box[3]*width
+      output_dict['detection_boxes'][i][3]=org_detection_box[2]*height
+      print (category_index[int(output_dict['detection_classes'][i])]['name']+": "+str(output_dict['detection_boxes'][i])+" : "+str(score))
+  plt.figure()
   plt.imshow(image_np)
   plt.show()
+  print ("===========================")
 
