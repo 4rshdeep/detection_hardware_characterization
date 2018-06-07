@@ -61,7 +61,7 @@ for file in files:
     path = dir+file
     t1 = time.time()
     frame = cv2.imread(path)
-    # frame = imutils.resize(frame, width=400)
+    frame = imutils.resize(frame, width=300, height=300)
     (h, w) = frame.shape[:2]
     blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)),
         0.007843, (300, 300), 127.5)
