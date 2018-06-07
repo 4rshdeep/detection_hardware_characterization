@@ -47,16 +47,26 @@ loading_image   = 0
 inference_image = 0
 vis_image       = 0
 
+############ Random first pass ###################
+path = dir+files[0]
+frame = cv2.imread(path)
+(h, w) = frame.shape[:2]
+blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)),
+    0.007843, (300, 300), 127.5)
+net.setInput(blob)
+detections = net.forward() 
+###################################################
+
 for file in files:
     path = dir+file
     t1 = time.time()
     frame = cv2.imread(path)
-    # frame = imutils.resize(frame, width=400)
+    frame = imutils.resize(frame, width=300, height=300)
     (h, w) = frame.shape[:2]
     blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)),
         0.007843, (300, 300), 127.5)
     t2 = time.time()
-    print("[INFO] Time taken in reading image is {}".format(t2-t1))
+    # print("[INFO] Time taken in reading image is {}".format(t2-t1))
     loading_image += (t2-t1)
 
     # pass the blob through the network and obtain the detections and
@@ -65,7 +75,7 @@ for file in files:
     t1 = time.time()
     detections = net.forward()
     t2 = time.time()
-    print("[INFO] Total Inference time is {}".format(t2 - t1))
+    # print("[INFO] Total Inference time is {}".format(t2 - t1))
     inference_image += (t2-t1)
     # print (detections)
     # loop over the detections
@@ -97,7 +107,7 @@ for file in files:
                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
     # show the output frame
     t2 = time.time()
-    print("[INFO] Total taken in visualisation is {}".format(t2 - t1))
+    # print("[INFO] Total taken in visualisation is {}".format(t2 - t1))
     vis_image += (t2-t1)
 
 
