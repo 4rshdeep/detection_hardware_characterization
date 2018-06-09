@@ -24,11 +24,9 @@ CONFIDENCE=0.35
 DPI=96
 
 # What model to download.
-MODEL_NAME = 'ssd_mobilenet_v1_coco_2017_11_17'
-MODEL_FILE = MODEL_NAME + '.tar.gz'
-DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/'
-PATH_TO_CKPT = MODEL_NAME + '/frozen_inference_graph.pb'
-PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
+# PATH_TO_FROZEN_GRAPH = "../tensorflow_model/ssd_mobilenet_v1.pb"
+PATH_TO_FROZEN_GRAPH = "../tf_model_1.8/frozen_inference_graph.pb"
+PATH_TO_LABELS = os.path.join('../tensorflow_model/data', 'mscoco_label_map.pbtxt')
 NUM_CLASSES = 90
 
 
@@ -36,7 +34,7 @@ NUM_CLASSES = 90
 detection_graph = tf.Graph()
 with detection_graph.as_default():
   od_graph_def = tf.GraphDef()
-  with tf.gfile.GFile(PATH_TO_CKPT, 'rb') as fid:
+  with tf.gfile.GFile(PATH_TO_FROZEN_GRAPH, 'rb') as fid:
     serialized_graph = fid.read()
     od_graph_def.ParseFromString(serialized_graph)
     tf.import_graph_def(od_graph_def, name='')
