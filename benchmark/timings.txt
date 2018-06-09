@@ -1,0 +1,39 @@
+movidius caffe ssd mobilenet
+Image read: 35ms (Mayank's system)
+inference: 86ms (using benchmarks app in ncapzoo)
+visualisation: 0.09ms (Mayank's system)
+------------------------------------------------------
+jetson caffe ssd mobilenet
+Image read: 22.4ms
+inference: 127.8ms
+visualisation: 0.6ms
+------------------------------------------------------
+raspberry pi 3 cpu ssd mobilnet
+image read: 71.3ms
+inference: 55.6ms
+visualisation: 2.3ms
+------------------------------------------------------
+raspberry pi 3 movidius ssd mobilnet
+image read: 54.7ms
+inference: 125.9ms
+visualisation: 1.3ms
+------------------------------------------------------
+vision gpu
+image read: 12.2ms
+inference: 27.2ms
+visualisation: 0.1ms
+------------------------------------------------------
+android caffe ssd mobilenet(moto g4 plus)
+image read: 197ms
+inference: 4333ms
+visualisation: 7.7ms
+
+
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+android tensorflow ssd mobilenet(moto g4 plus)
+image read: 83ms
+inference: 1390ms
+visualisation: 2.1ms
