@@ -1,32 +1,39 @@
-movidius caffe ssd mobilenet
-Image read: 35ms (Mayank's system)
-inference: 86ms (using benchmarks app in ncapzoo)
-visualisation: 0.09ms (Mayank's system)
+tested using the first 50 images of kitti dataset and took their average
+
+movidius caffe ssd mobilenet (checked)
+Image read: 17ms (Vision system)
+inference: 89ms (using benchmarks app in ncapzoo)
+visualisation: 0.09ms (Vision system)
 ------------------------------------------------------
-jetson caffe ssd mobilenet
+jetson caffe ssd mobilenet (checked)
 Image read: 22.4ms
 inference: 127.8ms
 visualisation: 0.6ms
 ------------------------------------------------------
-raspberry pi 3 cpu caffe ssd mobilnet
-image read: 71.3ms
-inference: 55.6ms
+raspberry pi 3 cpu caffe ssd mobilnet (checked)
+image read: 90.3ms
+inference: 550.6ms
 visualisation: 2.3ms
 ------------------------------------------------------
-raspberry pi 3 movidius caffe ssd mobilnet
+raspberry pi 3 movidius caffe ssd mobilnet (checked)
 image read: 54.7ms
 inference: 125.9ms
 visualisation: 1.3ms
 ------------------------------------------------------
-vision gpu caffe ssd mobilenet
+vision gpu caffe ssd mobilenet (checked)
 image read: 12.2ms
-inference: 27.2ms
+inference: 24.2ms
 visualisation: 0.1ms
 ------------------------------------------------------
-android caffe ssd mobilenet(moto g4 plus)
+android caffe ssd mobilenet(moto g4 plus) (checked)
 image read: 197ms
-inference: 4333ms
+inference: 1154ms
 visualisation: 7.7ms
+------------------------------------------------------
+android caffe ssd mobilenet(samsung s7 edge) (checked)
+image read: 9.56ms
+inference: 200ms
+visualisation: 0.33ms
 
 
 
@@ -34,56 +41,75 @@ visualisation: 7.7ms
 -------------------------------------------------------------------
 Tensorflow 1.5 ssd mobilenet
 -------------------------------------------------------------------
-android tensorflow ssd mobilenet(moto g4 plus)
+android tensorflow ssd mobilenet(moto g4 plus) (checked)
 image read: 83ms
 inference: 1390ms
 visualisation: 2.1ms
+-------------------------------------------------------------------
+android tensorflow ssd mobilenet(Galaxy s7 edge) (checked)
+image read: 2ms
+inference: 753ms
+visualisation: 2.1ms
 -------------------------------------------------------
-jetson tensorflow ssd mobilenet
+jetson tensorflow ssd mobilenet (checked)
 Image read: 18ms
 inference: 219ms
 visualisation: almost 0
 -------------------------------------------------------
-raspberry pi 3 cpu tesorflow ssd mobilnet
+raspberry pi 3 cpu tesorflow ssd mobilnet (checked)
 image read: 60ms
 inference: 799ms
 visualisation: almost 0
 ------------------------------------------------------
-vision gpu tensorflow ssd mobilenet
+vision gpu tensorflow ssd mobilenet (checked)
 image read: 12.4ms
 inference: 62.5ms
 visualisation: almost 0
 
 
+
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 -----------------------------------------------------------------
-movidius caffe tiny-yolo-v2
-Image read: 53ms (Mayank's system)
-inference:  182ms(using benchmarks app in ncapzoo)
-visualisation: 0.03 (Mayank's system)
+movidius caffe tiny-yolo-v2 (checked)
+Image read: 17ms (Vision system)
+inference:  174ms(using benchmarks app in ncapzoo)
+visualisation: almost 0 (Vision system)
 ------------------------------------------------------
-jetson caffe tiny-yolo-v2
-Image read: 
-inference: 
-visualisation: 
+jetson caffe tiny-yolo-v2 (checked)
+Image read: 28ms
+inference: 123ms
+visualisation: 1ms
 ------------------------------------------------------
-raspberry pi 3 cpu caffe tiny-yolo-v2
-image read: 
-inference: 
-visualisation: 
+raspberry pi 3 cpu caffe tiny-yolo-v2 (checked)
+image read: 99ms
+inference: 637ms
+visualisation: 4ms
 ------------------------------------------------------
-raspberry pi 3 movidius caffe tiny-yolo-v2
-image read: 
-inference: 
-visualisation: 
+raspberry pi 3 movidius caffe tiny-yolo-v2 (checked)
+image read: 64ms
+inference: 215ms
+visualisation: 0.22ms
 ------------------------------------------------------
-vision gpu caffe tiny-yolo-v2
-image read: 
-inference: 
-visualisation: 
+vision gpu caffe tiny-yolo-v2 (checked)
+image read: 11ms
+inference: 16 ms
+visualisation: almost 0
 ------------------------------------------------------
-android caffe tiny-yolo-v2(moto g4 plus)
-image read: 
-inference: 
-visualisation: 
+android caffe tiny-yolo-v2(moto g4 plus) (checked)
+image read: 130ms
+inference: 1364ms
+visualisation: --
+------------------------------------------------------
+android caffe tiny-yolo-v2(samsung s7 edge) (checked)
+image read: 27ms
+inference: 232ms
+visualisation: --
+
+
+
+
+
+
+
+yolo-v3/v2 weren't running on raspberry pi(darknet)
