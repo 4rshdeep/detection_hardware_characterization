@@ -106,6 +106,7 @@ def run_inference_for_single_image(image, graph):
         output_dict['detection_masks'] = output_dict['detection_masks'][0]
   return output_dict
 
+import cv2
 
 with detection_graph.as_default():
   with tf.Session() as sess:
@@ -122,8 +123,10 @@ with detection_graph.as_default():
 
     ########## First pass empty ####################
     img = TEST_IMAGES[0]
-    img = Image.open(img)
-    img = load_image_into_numpy_array(img)
+    # img = Image.open(img)
+    img = cv2.imread(img)
+    # print(img.shape)
+    # img = load_image_into_numpy_array(img)
     image_tensor = tf.get_default_graph().get_tensor_by_name('image_tensor:0')
     t1 = time.time()
     sess.run(tensor_dict, feed_dict={image_tensor: np.expand_dims(img, 0)})
@@ -138,9 +141,11 @@ with detection_graph.as_default():
     for image_path in TEST_IMAGES:
       
       t1 = time.time()
-      image = Image.open(image_path)
-      width, height = image.size
-      image = load_image_into_numpy_array(image)
+      # image = Image.open(image_path)
+      image = cv2.imread(image_path)
+
+      # width, height = image.size
+      # image = load_image_into_numpy_array(image)
       t2 = time.time()
       print("[INFO] Time taken in loading image is {}".format(t2-t1))
       read_time += (t2-t1)
