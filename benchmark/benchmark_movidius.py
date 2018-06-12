@@ -2,18 +2,17 @@
 
 # Copyright(c) 2017 Intel Corporation. 
 # License: MIT See LICENSE file in root directory.
-
-
+import sys
+sys.path.insert(0,"/usr/local/lib/python3.5/dist-packages")
 from mvnc import mvncapi as mvnc
 import numpy
 import cv2
-import sys
 import time
 import os
 
 dim=(300,300)
 cwd = os.getcwd()
-IMAGES_DIR =  cwd+'/benchmark/images/'
+IMAGES_DIR =  cwd+'/images/'
 # IMAGE_FULL_PATH = IMAGES_DIR + 'kitti-some/000008.png'
 imgs = os.listdir(IMAGES_DIR)
 img_array=[]
@@ -79,7 +78,7 @@ def run_inference(image_to_classify, ssd_mobilenet_graph):
     # number of boxes returned
     num_valid_boxes = int(output[0])
     # print('total num boxes: ' + str(num_valid_boxes))
-
+    time3=time.time()
     for box_index in range(num_valid_boxes):
             base_index = 7+ box_index * 7
             if (not numpy.isfinite(output[base_index]) or
@@ -109,9 +108,8 @@ def run_inference(image_to_classify, ssd_mobilenet_graph):
             #       'Top Left: (' + x1_ + ', ' + y1_ + ')  Bottom Right: (' + x2_ + ', ' + y2_ + ')')
 
             # overlay boxes and labels on the original image to classify
-            time3=time.time()
             overlay_on_image(image_to_classify, output[base_index:base_index + 7])
-            time4=time.time()
+    time4=time.time()
 
 # overlays the boxes and labels onto the display image.
 # display_image is the image on which to overlay the boxes/labels
@@ -207,7 +205,7 @@ def main():
     device.OpenDevice()
 
     # The graph file that was created with the ncsdk compiler
-    graph_file_name = cwd+'/caffe_model/yoloV2Tiny20.graph'
+    graph_file_name = cwd+'/../caffe_model/yoloV2Tiny20.graph'
 
     # read in the graph file to memory buffer
     with open(graph_file_name, mode='rb') as f:
