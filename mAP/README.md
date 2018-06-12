@@ -15,3 +15,11 @@ mAP = 12.10%
 26.92% = vehicle AP  
 mAP = 14.34%
 ```
+
+* for tiny yolov2
+```
+ python mAP.py -na                                                       2 ↵
+2.41% = person AP  
+7.22% = vehicle AP  
+mAP = 4.81%
+```
