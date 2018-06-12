@@ -40,8 +40,8 @@ inference: 1390ms
 visualisation: 2.1ms
 -------------------------------------------------------
 jetson tensorflow ssd mobilenet
-Image read: 992ms
-inference: 325ms
+Image read: 18ms
+inference: 219ms
 visualisation: almost 0
 -------------------------------------------------------
 raspberry pi 3 cpu tesorflow ssd mobilnet
