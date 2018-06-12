@@ -82,8 +82,8 @@ for i in np.arange(0, detections.shape[2]):
 t2 = time.time()
 print("[INFO] Total taken in visualisation is {}".format(t2 - t1))
 
-# cv2.imshow("Frame", frame)
-# key = cv2.waitKey(1) & 0xFF
+cv2.imshow("Frame", frame)
+key = cv2.waitKey(1) & 0xFF
 # k = cv2.waitKey(300000000)
 # update the FPS counter
 # fps.update()

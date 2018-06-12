@@ -32,6 +32,7 @@ visualisation: 7.7ms
 
 -------------------------------------------------------------------
 -------------------------------------------------------------------
+Tensorflow 1.5
 -------------------------------------------------------------------
 android tensorflow ssd mobilenet(moto g4 plus)
 image read: 83ms
@@ -39,16 +40,16 @@ inference: 1390ms
 visualisation: 2.1ms
 -------------------------------------------------------
 jetson tensorflow ssd mobilenet
-Image read: 
-inference: 
-visualisation: 
+Image read: 992ms
+inference: 325ms
+visualisation: almost 0
 -------------------------------------------------------
 raspberry pi 3 cpu tesorflow ssd mobilnet
-image read: 
-inference: 
-visualisation: 
+image read: 60ms
+inference: 799ms
+visualisation: almost 0
 ------------------------------------------------------
 vision gpu tensorflow ssd mobilenet
-image read: 
-inference: 
-visualisation: 
+image read: 12.4ms
+inference: 62.5ms
+visualisation: almost 0

@@ -15,7 +15,7 @@ ap.add_argument("-m", "--model", required=True,
 	help="path to Caffe pre-trained model")
 ap.add_argument("-c", "--confidence", type=float, default=0.2,
 	help="minimum probability to filter weak detections")
-ap.add_argument("-i", "--image", help = "Path to the image", default="img3.jpg")
+ap.add_argument("-i", "--image", help = "Path to the image", default="benchmark/images/000008.png")
 args = vars(ap.parse_args())
 
 # initialize the list of class labels MobileNet SSD was trained to
