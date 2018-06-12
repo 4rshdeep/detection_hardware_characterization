@@ -7,9 +7,9 @@ import os
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-p", "--prototxt", default="../caffe_model/MobileNetSSD_deploy.prototxt",
+ap.add_argument("-p", "--prototxt", default="../caffe_model/yoloV2Tiny20.prototxt",
     help="path to Caffe 'deploy' prototxt file")
-ap.add_argument("-m", "--model", default="../caffe_model/MobileNetSSD_deploy.caffemodel",
+ap.add_argument("-m", "--model", default="../caffe_model/yoloV2Tiny20.caffemodel",
     help="path to Caffe pre-trained model")
 ap.add_argument("-c", "--confidence", type=float, default=0.2,
     help="minimum probability to filter weak detections")
