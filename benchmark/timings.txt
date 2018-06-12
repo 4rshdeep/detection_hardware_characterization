@@ -8,17 +8,17 @@ Image read: 22.4ms
 inference: 127.8ms
 visualisation: 0.6ms
 ------------------------------------------------------
-raspberry pi 3 cpu ssd mobilnet
+raspberry pi 3 cpu caffe ssd mobilnet
 image read: 71.3ms
 inference: 55.6ms
 visualisation: 2.3ms
 ------------------------------------------------------
-raspberry pi 3 movidius ssd mobilnet
+raspberry pi 3 movidius caffe ssd mobilnet
 image read: 54.7ms
 inference: 125.9ms
 visualisation: 1.3ms
 ------------------------------------------------------
-vision gpu
+vision gpu caffe ssd mobilenet
 image read: 12.2ms
 inference: 27.2ms
 visualisation: 0.1ms
@@ -37,3 +37,18 @@ android tensorflow ssd mobilenet(moto g4 plus)
 image read: 83ms
 inference: 1390ms
 visualisation: 2.1ms
+-------------------------------------------------------
+jetson tensorflow ssd mobilenet
+Image read: 
+inference: 
+visualisation: 
+-------------------------------------------------------
+raspberry pi 3 cpu tesorflow ssd mobilnet
+image read: 
+inference: 
+visualisation: 
+------------------------------------------------------
+vision gpu tensorflow ssd mobilenet
+image read: 
+inference: 
+visualisation: 
