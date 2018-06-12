@@ -64,14 +64,14 @@ inference:  182ms(using benchmarks app in ncapzoo)
 visualisation: 0.03 (Mayank's system)
 ------------------------------------------------------
 jetson caffe tiny-yolo-v2
-Image read: 
-inference: 
-visualisation: 
+Image read: 28ms
+inference: 123ms
+visualisation: 1ms
 ------------------------------------------------------
 raspberry pi 3 cpu caffe tiny-yolo-v2
-image read: 
-inference: 
-visualisation: 
+image read: 99ms
+inference: 66ms
+visualisation: 4ms
 ------------------------------------------------------
 raspberry pi 3 movidius caffe tiny-yolo-v2
 image read: 
@@ -84,6 +84,6 @@ inference:
 visualisation: 
 ------------------------------------------------------
 android caffe tiny-yolo-v2(moto g4 plus)
-image read: 
-inference: 
-visualisation: 
+image read: 130ms
+inference: 3154ms
+visualisation: --
