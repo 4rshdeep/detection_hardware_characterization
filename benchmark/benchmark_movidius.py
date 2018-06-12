@@ -13,7 +13,7 @@ import os
 
 dim=(300,300)
 cwd = os.getcwd()
-IMAGES_DIR =  cwd+'/images/'
+IMAGES_DIR =  cwd+'/benchmark/images/'
 # IMAGE_FULL_PATH = IMAGES_DIR + 'kitti-some/000008.png'
 imgs = os.listdir(IMAGES_DIR)
 img_array=[]
@@ -26,6 +26,7 @@ for img in imgs:
 time1=0
 time2=0
 time3=0
+time4=0
 
 LABELS = ('background',
           'aeroplane', 'bicycle', 'bird', 'boat',
@@ -206,7 +207,7 @@ def main():
     device.OpenDevice()
 
     # The graph file that was created with the ncsdk compiler
-    graph_file_name = cwd+'/../caffe-model/MobileNetSSD_movidius.graph'
+    graph_file_name = cwd+'/caffe_model/yoloV2Tiny20.graph'
 
     # read in the graph file to memory buffer
     with open(graph_file_name, mode='rb') as f:

@@ -32,7 +32,7 @@ visualisation: 7.7ms
 
 -------------------------------------------------------------------
 -------------------------------------------------------------------
-Tensorflow 1.5
+Tensorflow 1.5 ssd mobilenet
 -------------------------------------------------------------------
 android tensorflow ssd mobilenet(moto g4 plus)
 image read: 83ms
@@ -53,3 +53,37 @@ vision gpu tensorflow ssd mobilenet
 image read: 12.4ms
 inference: 62.5ms
 visualisation: almost 0
+
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+movidius caffe tiny-yolo-v2
+Image read: 53ms (Mayank's system)
+inference:  182ms(using benchmarks app in ncapzoo)
+visualisation: 0.03 (Mayank's system)
+------------------------------------------------------
+jetson caffe tiny-yolo-v2
+Image read: 
+inference: 
+visualisation: 
+------------------------------------------------------
+raspberry pi 3 cpu caffe tiny-yolo-v2
+image read: 
+inference: 
+visualisation: 
+------------------------------------------------------
+raspberry pi 3 movidius caffe tiny-yolo-v2
+image read: 
+inference: 
+visualisation: 
+------------------------------------------------------
+vision gpu caffe tiny-yolo-v2
+image read: 
+inference: 
+visualisation: 
+------------------------------------------------------
+android caffe tiny-yolo-v2(moto g4 plus)
+image read: 
+inference: 
+visualisation: 

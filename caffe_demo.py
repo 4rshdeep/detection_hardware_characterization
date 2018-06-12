@@ -15,7 +15,7 @@ ap.add_argument("-m", "--model", required=True,
 	help="path to Caffe pre-trained model")
 ap.add_argument("-c", "--confidence", type=float, default=0.2,
 	help="minimum probability to filter weak detections")
-ap.add_argument("-i", "--image", help = "Path to the image", default="benchmark/images/000008.png")
+ap.add_argument("-i", "--image", help = "Path to the image", default="benchmark/images/000000.png")
 args = vars(ap.parse_args())
 
 # initialize the list of class labels MobileNet SSD was trained to
@@ -45,11 +45,13 @@ net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
 
 t1 = time.time()
 frame = cv2.imread(args["image"])
-# frame = imutils.resize(frame, width=400)
+# frame = imutils.resize(frame, width=300)
 # grab the frame dimensions and convert it to a blob
 (h, w) = frame.shape[:2]
 blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)),
-	0.007843, (300, 300), 127.5)
+	0.003, (300, 300), 0)
+# blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)),
+	# 0.007843, (300, 300), 127.5)
 t2 = time.time()
 
 # pass the blob through the network and obtain the detections and
@@ -59,13 +61,13 @@ t1 = time.time()
 detections = net.forward()
 t2 = time.time()
 print("[INFO] Total Inference time is {}".format(t2 - t1))
-# print (detections)
 # loop over the detections
+
 for i in np.arange(0, detections.shape[2]):
 	# extract the confidence (i.e., probability) associated with
 	# the prediction
 	confidence = detections[0, 0, i, 2]
-
+	#print (detections[0])
 	# filter out weak detections by ensuring the `confidence` is
 	# greater than the minimum confidence
 	if confidence > args["confidence"]:
@@ -75,7 +77,7 @@ for i in np.arange(0, detections.shape[2]):
 		idx = int(detections[0, 0, i, 1])
 		box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 		(startX, startY, endX, endY) = box.astype("int")
-		print (startX,startY,endX,endY,)
+		# print (startX,startY,endX,endY,)
 
 		# draw the prediction on the frame
 		label = "{}: {:.2f}%".format(CLASSES[idx],
