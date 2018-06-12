@@ -25,7 +25,7 @@ DPI=96
 
 # What model to download.
 # PATH_TO_FROZEN_GRAPH = "../tensorflow_model/ssd_mobilenet_v1.pb"
-PATH_TO_FROZEN_GRAPH = "../tf_model_1.8/frozen_inference_graph.pb"
+PATH_TO_FROZEN_GRAPH = "../tensorflow_model/ssd_mobilenet_v1.pb"
 PATH_TO_LABELS = os.path.join('../tensorflow_model/data', 'mscoco_label_map.pbtxt')
 NUM_CLASSES = 90
 
