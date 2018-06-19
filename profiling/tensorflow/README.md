@@ -22,7 +22,7 @@ In this repo we are going to profile `ssd_mobilenet_v1.pb`, by following the bel
     with open('timeline_01.json', 'w') as f:
       f.write(chrome_trace)
     ```
-5. To view this data, open chrome browser and go to `chrome://tracing`.I
+5. To view this data, open chrome browser and go to `chrome://tracing`.
 6. In the upper left corner, you will find Load button. Press it and load our JSON file.
 
 ## Notes
