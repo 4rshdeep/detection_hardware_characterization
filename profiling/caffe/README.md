@@ -12,9 +12,9 @@ cd caffe
 cp Makefile.config.example Makefile.config
 ```
 2. Edit `Makefile.config` and `Makefile` according to the system on which you want to build caffe
-  * [Jetson TX2] (https://jkjung-avt.github.io/caffe-on-tx2/)
+  * [Jetson TX2](https://jkjung-avt.github.io/caffe-on-tx2/)
   * [Raspberry Pi 3](https://github.com/leo2105/Caffe-installation-Raspberry-Pi-3)
-  * [PC] (http://installing-caffe-the-right-way.wikidot.com/start)
+  * [PC](http://installing-caffe-the-right-way.wikidot.com/start)
 3. Copy and replace the `layers` folder from this repo to `<caffe-root>/src/caffe/>
 4. Build caffe
 ```
