@@ -8,6 +8,8 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <ctime>
+
 
 #include "boost/filesystem.hpp"
 #include "boost/foreach.hpp"
@@ -19,6 +21,8 @@ namespace caffe {
 template <typename Dtype>
 void DetectionOutputLayer<Dtype>::Forward_gpu(
     const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) {
+  int start_s = clock();
+
   const Dtype* loc_data = bottom[0]->gpu_data();
   const Dtype* prior_data = bottom[2]->gpu_data();
   const int num = bottom[0]->num();
@@ -297,6 +301,9 @@ void DetectionOutputLayer<Dtype>::Forward_gpu(
         label_to_display_name_, save_file_);
 #endif  // USE_OPENCV
   }
+  int stop_s = clock();
+  std::cout << "detection output: input : "<< bottom[0]->shape_string()<< " : output : " << top[0]->shape_string()<< " " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << "ms" << std::endl;
+
 }
 
 INSTANTIATE_LAYER_GPU_FUNCS(DetectionOutputLayer);

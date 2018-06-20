@@ -1,6 +1,8 @@
 #include <algorithm>
 #include <cfloat>
 #include <vector>
+#include <ctime>
+
 
 #include "caffe/layers/permute_layer.hpp"
 #include "caffe/util/math_functions.hpp"
@@ -31,6 +33,8 @@ __global__ void PermuteKernel(const int nthreads,
 template <typename Dtype>
 void PermuteLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top) {
+  int start_s = clock();
+
   if (need_permute_) {
     Dtype* bottom_data = bottom[0]->mutable_gpu_data();
     Dtype* top_data = top[0]->mutable_gpu_data();
@@ -48,6 +52,9 @@ void PermuteLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
     // If there is no need to permute, we share data to save memory.
     top[0]->ShareData(*bottom[0]);
   }
+  int stop_s = clock();
+  std::cout << "permute: input : "<< bottom[0]->shape_string()<< " : output : " << top[0]->shape_string()<< " " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << "ms" << std::endl;
+
 }
 
 

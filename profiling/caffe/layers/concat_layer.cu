@@ -1,4 +1,6 @@
 #include <vector>
+#include <ctime>
+
 
 #include "caffe/layers/concat_layer.hpp"
 #include "caffe/util/math_functions.hpp"
@@ -27,6 +29,8 @@ __global__ void Concat(const int nthreads, const Dtype* in_data,
 template <typename Dtype>
 void ConcatLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top) {
+  int start_s = clock();
+
   if (bottom.size() == 1) { return; }
   Dtype* top_data = top[0]->mutable_gpu_data();
   int offset_concat_axis = 0;
@@ -43,6 +47,9 @@ void ConcatLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
         top_concat_axis, bottom_concat_axis, offset_concat_axis, top_data);
     offset_concat_axis += bottom_concat_axis;
   }
+  int stop_s = clock();
+  std::cout << "concat: input : "<< bottom[0]->shape_string()<< " : output : " << top[0]->shape_string()<< " " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << "ms" << std::endl;
+
 }
 
 template <typename Dtype>

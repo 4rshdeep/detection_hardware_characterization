@@ -1,5 +1,7 @@
 #include <algorithm>
 #include <vector>
+#include <ctime>
+
 
 #include "caffe/layers/batch_norm_layer.hpp"
 #include "caffe/util/math_functions.hpp"
@@ -9,6 +11,8 @@ namespace caffe {
 template <typename Dtype>
 void BatchNormLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
     const vector<Blob<Dtype>*>& top) {
+  int start_s = clock();
+
   const Dtype* bottom_data = bottom[0]->gpu_data();
   Dtype* top_data = top[0]->mutable_gpu_data();
   int num = bottom[0]->shape(0);
@@ -87,6 +91,9 @@ void BatchNormLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
   //                 might clobber the data.  Can we skip this if they won't?
   caffe_copy(x_norm_.count(), top_data,
       x_norm_.mutable_gpu_data());
+  int stop_s = clock();
+  std::cout << "batch_norm: input : "<< bottom[0]->shape_string()<< " : output : " << top[0]->shape_string()<< " " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << "ms" << std::endl;
+
 }
 
 template <typename Dtype>

@@ -1,5 +1,6 @@
 #include <cfloat>
 #include <vector>
+#include <ctime>
 
 #include "caffe/layers/scale_layer.hpp"
 #include "caffe/util/math_functions.hpp"
@@ -29,6 +30,8 @@ __global__ void ScaleBiasForward(const int n, const Dtype* in,
 template <typename Dtype>
 void ScaleLayer<Dtype>::Forward_gpu(
     const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) {
+  int start_s = clock();
+
   const int count = top[0]->count();
   const Dtype* bottom_data = bottom[0]->gpu_data();
   if (bottom[0] == top[0]) {
@@ -53,6 +56,9 @@ void ScaleLayer<Dtype>::Forward_gpu(
         <<<CAFFE_GET_BLOCKS(count), CAFFE_CUDA_NUM_THREADS>>>(
         count, bottom_data, scale_data, scale_dim_, inner_dim_, top_data);
   }
+  int stop_s = clock();
+  std::cout << "scale: input : "<< bottom[0]->shape_string()<< " : output : " << top[0]->shape_string()<< " " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << "ms" << std::endl;
+
 }
 
 template <typename Dtype>
