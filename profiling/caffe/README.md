@@ -28,3 +28,28 @@ make -j4 pycaffe
 ```
 export PYTHONPATH=<caffe-root>/python:$PYTHONPATH
 ```
+
+## Notes
+1. In this repo, we are trying to run `yoloV2Tiny20` and `MobileNetSSD_deploy`, so we only changed the layers:
+ * conv_layer.cpp
+ * conv_layer.cu
+ * batch_norm_layer.cpp
+ * batch_norm_layer.cu
+ * scale_layer.cpp
+ * scale_layer.cu
+ * relu_layer.cpp
+ * relu_layer.cu
+ * pooling_layer.cpp
+ * pooling_layer.cu
+ * permute_layer.cpp
+ * permute_layer.cu
+ * flattern_layer.cpp
+ * prior_box_layer.cpp
+ * concat_layer.cpp
+ * concat_layer.cu
+ * softmax_layer.cpp
+ * softmax_layer.cu
+ * detection_output_layer.cpp
+ * detection_output_layer.cu
+2. We had tried both `ctime` and `chrono` modules. Both of them yield almost same results.
+3. Remember to uncomment the line: `caffe.set_mode_gpu()` in the inference script, when running on a gpu.
