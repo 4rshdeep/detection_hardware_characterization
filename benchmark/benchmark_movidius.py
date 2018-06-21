@@ -205,7 +205,7 @@ def main():
     device.OpenDevice()
 
     # The graph file that was created with the ncsdk compiler
-    graph_file_name = cwd+'/../caffe_model/yoloV2Tiny20.graph'
+    graph_file_name = cwd+'/../caffe_model/MobileNetSSD_deploy.graph'
 
     # read in the graph file to memory buffer
     with open(graph_file_name, mode='rb') as f:

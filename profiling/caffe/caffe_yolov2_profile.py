@@ -14,7 +14,7 @@ if not os.path.exists(caffe_model):
     print("MobileNetSSD_deploy.caffemodel does not exist,")
     print("use merge_bn.py to generate it.")
     exit()
-# caffe.set_mode_gpu()
+caffe.set_mode_gpu()
 net = caffe.Net(net_file,caffe_model,caffe.TEST)  
 
 CLASSES = ('background',

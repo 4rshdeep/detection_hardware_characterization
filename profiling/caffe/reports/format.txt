@@ -1,0 +1,101 @@
+### First Pass ###
+convolution: input : 1 32 150 150 (720000) : output : 1 32 150 150 (720000) 1.305ms
+convolution: input : 1 64 150 150 (1440000) : output : 1 64 75 75 (360000) 1.237ms
+convolution: input : 1 128 75 75 (720000) : output : 1 128 75 75 (720000) 1.614ms
+convolution: input : 1 128 75 75 (720000) : output : 1 128 38 38 (184832) 0.867ms
+convolution: input : 1 256 38 38 (369664) : output : 1 256 38 38 (369664) 1.352ms
+convolution: input : 1 256 38 38 (369664) : output : 1 256 19 19 (92416) 1.138ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 1.946ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 1.967ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 2.614ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 2.147ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 2.241ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 10 10 (51200) 1.843ms
+convolution: input : 1 1024 10 10 (102400) : output : 1 1024 10 10 (102400) 3.401ms
+permute: input : 1 12 19 19 (4332) : output : 1 19 19 12 (4332) 0.076ms
+flatten: input : 1 19 19 12 (4332) : output : 1 4332 (4332) 0.001ms
+permute: input : 1 63 19 19 (22743) : output : 1 19 19 63 (22743) 0.076ms
+flatten: input : 1 19 19 63 (22743) : output : 1 22743 (22743) 0.001ms
+prior box: input : 1 512 19 19 (184832) : output : 1 2 4332 (8664) 0.034ms
+permute: input : 1 24 10 10 (2400) : output : 1 10 10 24 (2400) 0.103ms
+flatten: input : 1 10 10 24 (2400) : output : 1 2400 (2400) 0.001ms
+permute: input : 1 126 10 10 (12600) : output : 1 10 10 126 (12600) 0.072ms
+flatten: input : 1 10 10 126 (12600) : output : 1 12600 (12600) 0ms
+prior box: input : 1 1024 10 10 (102400) : output : 1 2 2400 (4800) 0.031ms
+permute: input : 1 24 5 5 (600) : output : 1 5 5 24 (600) 0.072ms
+flatten: input : 1 5 5 24 (600) : output : 1 600 (600) 0.001ms
+permute: input : 1 126 5 5 (3150) : output : 1 5 5 126 (3150) 0.075ms
+flatten: input : 1 5 5 126 (3150) : output : 1 3150 (3150) 0.001ms
+prior box: input : 1 512 5 5 (12800) : output : 1 2 600 (1200) 0.019ms
+permute: input : 1 24 3 3 (216) : output : 1 3 3 24 (216) 0.069ms
+flatten: input : 1 3 3 24 (216) : output : 1 216 (216) 0ms
+permute: input : 1 126 3 3 (1134) : output : 1 3 3 126 (1134) 0.069ms
+flatten: input : 1 3 3 126 (1134) : output : 1 1134 (1134) 0ms
+prior box: input : 1 256 3 3 (2304) : output : 1 2 216 (432) 0.024ms
+permute: input : 1 24 2 2 (96) : output : 1 2 2 24 (96) 0.068ms
+flatten: input : 1 2 2 24 (96) : output : 1 96 (96) 0.001ms
+permute: input : 1 126 2 2 (504) : output : 1 2 2 126 (504) 0.072ms
+flatten: input : 1 2 2 126 (504) : output : 1 504 (504) 0.001ms
+prior box: input : 1 256 2 2 (1024) : output : 1 2 96 (192) 0.029ms
+permute: input : 1 24 1 1 (24) : output : 1 1 1 24 (24) 0.067ms
+flatten: input : 1 1 1 24 (24) : output : 1 24 (24) 0.001ms
+permute: input : 1 126 1 1 (126) : output : 1 1 1 126 (126) 0.066ms
+flatten: input : 1 1 1 126 (126) : output : 1 126 (126) 0.001ms
+prior box: input : 1 128 1 1 (128) : output : 1 2 24 (48) 0.023ms
+concat: input : 1 4332 (4332) : output : 1 7668 (7668) 0.03ms
+concat: input : 1 22743 (22743) : output : 1 40257 (40257) 0.026ms
+concat: input : 1 2 4332 (8664) : output : 1 2 7668 (15336) 0.148ms
+flatten: input : 1 1917 21 (40257) : output : 1 40257 (40257) 0ms
+detection output: input : 1 7668 (7668) : output : 1 1 1 7 (7) 0.181ms
+
+
+### Important pass ###
+convolution: input : 1 32 150 150 (720000) : output : 1 32 150 150 (720000) 0.678ms
+convolution: input : 1 64 150 150 (1440000) : output : 1 64 75 75 (360000) 0.636ms
+convolution: input : 1 128 75 75 (720000) : output : 1 128 75 75 (720000) 0.98ms
+convolution: input : 1 128 75 75 (720000) : output : 1 128 38 38 (184832) 0.639ms
+convolution: input : 1 256 38 38 (369664) : output : 1 256 38 38 (369664) 0.983ms
+convolution: input : 1 256 38 38 (369664) : output : 1 256 19 19 (92416) 1.514ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 2.115ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 1.973ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 2ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 1.672ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 19 19 (184832) 1.677ms
+convolution: input : 1 512 19 19 (184832) : output : 1 512 10 10 (51200) 1.579ms
+convolution: input : 1 1024 10 10 (102400) : output : 1 1024 10 10 (102400) 3.216ms
+permute: input : 1 12 19 19 (4332) : output : 1 19 19 12 (4332) 1.064ms
+flatten: input : 1 19 19 12 (4332) : output : 1 4332 (4332) 0ms
+permute: input : 1 63 19 19 (22743) : output : 1 19 19 63 (22743) 0.086ms
+flatten: input : 1 19 19 63 (22743) : output : 1 22743 (22743) 0ms
+prior box: input : 1 512 19 19 (184832) : output : 1 2 4332 (8664) 0.014ms
+permute: input : 1 24 10 10 (2400) : output : 1 10 10 24 (2400) 0.142ms
+flatten: input : 1 10 10 24 (2400) : output : 1 2400 (2400) 0ms
+permute: input : 1 126 10 10 (12600) : output : 1 10 10 126 (12600) 0.134ms
+flatten: input : 1 10 10 126 (12600) : output : 1 12600 (12600) 0ms
+prior box: input : 1 1024 10 10 (102400) : output : 1 2 2400 (4800) 0.007ms
+permute: input : 1 24 5 5 (600) : output : 1 5 5 24 (600) 0.077ms
+flatten: input : 1 5 5 24 (600) : output : 1 600 (600) 0ms
+permute: input : 1 126 5 5 (3150) : output : 1 5 5 126 (3150) 0.079ms
+flatten: input : 1 5 5 126 (3150) : output : 1 3150 (3150) 0.001ms
+prior box: input : 1 512 5 5 (12800) : output : 1 2 600 (1200) 0.003ms
+permute: input : 1 24 3 3 (216) : output : 1 3 3 24 (216) 0.053ms
+flatten: input : 1 3 3 24 (216) : output : 1 216 (216) 0.001ms
+permute: input : 1 126 3 3 (1134) : output : 1 3 3 126 (1134) 0.053ms
+flatten: input : 1 3 3 126 (1134) : output : 1 1134 (1134) 0ms
+prior box: input : 1 256 3 3 (2304) : output : 1 2 216 (432) 0.001ms
+permute: input : 1 24 2 2 (96) : output : 1 2 2 24 (96) 0.05ms
+flatten: input : 1 2 2 24 (96) : output : 1 96 (96) 0.001ms
+permute: input : 1 126 2 2 (504) : output : 1 2 2 126 (504) 0.052ms
+flatten: input : 1 2 2 126 (504) : output : 1 504 (504) 0ms
+prior box: input : 1 256 2 2 (1024) : output : 1 2 96 (192) 0.001ms
+permute: input : 1 24 1 1 (24) : output : 1 1 1 24 (24) 0.054ms
+flatten: input : 1 1 1 24 (24) : output : 1 24 (24) 0ms
+permute: input : 1 126 1 1 (126) : output : 1 1 1 126 (126) 0.052ms
+flatten: input : 1 1 1 126 (126) : output : 1 126 (126) 0ms
+prior box: input : 1 128 1 1 (128) : output : 1 2 24 (48) 0.001ms
+concat: input : 1 4332 (4332) : output : 1 7668 (7668) 0.018ms
+concat: input : 1 22743 (22743) : output : 1 40257 (40257) 0.015ms
+concat: input : 1 2 4332 (8664) : output : 1 2 7668 (15336) 0.068ms
+flatten: input : 1 1917 21 (40257) : output : 1 40257 (40257) 0.001ms
+detection output: input : 1 7668 (7668) : output : 1 1 1 7 (7) 0.142ms
+
