@@ -48,7 +48,7 @@ def detect(imgfile):
 
     net.blobs['data'].data[...] = img
     out = net.forward()  
-    box, conf, cls = postprocess(origimg, out)
+    # box, conf, cls = postprocess(origimg, out)
 
     # for i in range(len(box)):
     #    p1 = (box[i][0], box[i][1])
@@ -57,11 +57,11 @@ def detect(imgfile):
     #    p3 = (max(p1[0], 15), max(p1[1], 15))
     #    title = "%s:%.2f" % (CLASSES[int(cls[i])], conf[i])
     #    cv2.putText(origimg, title, p3, cv2.FONT_ITALIC, 0.6, (0, 255, 0), 1)
-    # # cv2.imshow("SSD", origimg)
+    # # # cv2.imshow("SSD", origimg)
  
-    k = cv2.waitKey(0) & 0xff
-        #Exit if ESC pressed
-    if k == 27 : return False
+    # k = cv2.waitKey(0) & 0xff
+    #     #Exit if ESC pressed
+    # if k == 27 : return False
     return True
 
 
