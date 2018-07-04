@@ -1,4 +1,4 @@
-# realtime_object_detection
+# object detection hardware characterization
 
 
 * run from root directory `python map_scripts/tf_object_detection.py`
