@@ -113,3 +113,12 @@ visualisation: --
 
 
 yolo-v3/v2 weren't running on raspberry pi(darknet)
+
+
+yolov2 inference time
+------------------------------------------------------------------
+vision gpu 
+inference: 17 ms
+------------------------------------------------------------------
+jetso board
+inference: 119 ms
