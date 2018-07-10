@@ -15,7 +15,7 @@ cp Makefile.config.example Makefile.config
   * [Jetson TX2](https://jkjung-avt.github.io/caffe-on-tx2/)
   * [Raspberry Pi 3](https://github.com/leo2105/Caffe-installation-Raspberry-Pi-3)
   * [PC](http://installing-caffe-the-right-way.wikidot.com/start)
-3. Copy and replace the `layers` folder from this repo to `<caffe-root>/src/caffe/`
+3. Copy and replace the files from `changed_layers` folder in this repo to `<caffe-root>/src/caffe/`
 4. Build caffe
 ```
 make clean

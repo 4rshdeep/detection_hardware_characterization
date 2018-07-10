@@ -4,10 +4,10 @@ import cv2
 # caffe_root = '/home/mayanksingh2298/Desktop/projects/caffe-profile/'
 # sys.path.insert(0, caffe_root + 'python')  
 import caffe  
-caffe.set_mode_gpu()
+# caffe.set_mode_gpu()
 
-net_file= '../../caffe_model/MobileNetSSD_deploy.prototxt'  
-caffe_model='../../caffe_model/MobileNetSSD_deploy.caffemodel'  
+net_file= '../../models/caffe/MobileNetSSD_deploy.prototxt'  
+caffe_model='../../models/caffe/MobileNetSSD_deploy.caffemodel'  
 test_dir = "../../benchmark/images"
 
 if not os.path.exists(caffe_model):

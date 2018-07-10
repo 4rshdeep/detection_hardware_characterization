@@ -1,8 +1,10 @@
 # coding: utf-8
+import sys
+import_stuff = '../../models/tensorflow/'
+sys.path.insert(0, import_stuff)  
 import numpy as np
 import os
 import six.moves.urllib as urllib
-import sys
 import time 
 import tarfile
 import tensorflow as tf
@@ -28,8 +30,8 @@ DPI=96
 
 # What model to download.
 # PATH_TO_FROZEN_GRAPH = "../tensorflow_model/ssd_mobilenet_v1.pb"
-PATH_TO_FROZEN_GRAPH = "../../tensorflow_model/ssd_mobilenet_v1.pb"
-PATH_TO_LABELS = os.path.join('../../tensorflow_model/data', 'mscoco_label_map.pbtxt')
+PATH_TO_FROZEN_GRAPH = "../../models/tensorflow/ssd_mobilenet_v1.pb"
+PATH_TO_LABELS = os.path.join('../../models/tensorflow/data', 'mscoco_label_map.pbtxt')
 NUM_CLASSES = 90
 
 

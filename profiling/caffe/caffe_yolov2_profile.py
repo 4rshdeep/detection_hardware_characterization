@@ -6,15 +6,15 @@ import cv2
 import caffe  
 
 
-net_file= '../../caffe_model/yoloV2Tiny20.prototxt'  
-caffe_model='../../caffe_model/yoloV2Tiny20.caffemodel'  
+net_file= '../../models/caffe/yoloV2Tiny20.prototxt'  
+caffe_model='../../models/caffe/yoloV2Tiny20.caffemodel'  
 test_dir = "../../benchmark/images"
 
 if not os.path.exists(caffe_model):
     print("MobileNetSSD_deploy.caffemodel does not exist,")
     print("use merge_bn.py to generate it.")
     exit()
-caffe.set_mode_gpu()
+# caffe.set_mode_gpu()
 net = caffe.Net(net_file,caffe_model,caffe.TEST)  
 
 CLASSES = ('background',
