@@ -1,5 +1,5 @@
 # object detection hardware characterization
-
+# Make the scripts runnable and edit this whole README
 
 * run from root directory `python map_scripts/tf_object_detection.py`
 * export model using `python object_detection/export_inference_graph.py \
