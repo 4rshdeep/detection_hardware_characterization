@@ -12,7 +12,7 @@ import os
 
 dim=(300,300)
 cwd = os.getcwd()
-IMAGES_DIR =  cwd+'/images/'
+IMAGES_DIR =  cwd+'/../images/'
 # IMAGE_FULL_PATH = IMAGES_DIR + 'kitti-some/000008.png'
 imgs = os.listdir(IMAGES_DIR)
 img_array=[]
@@ -205,7 +205,7 @@ def main():
     device.OpenDevice()
 
     # The graph file that was created with the ncsdk compiler
-    graph_file_name = cwd+'/../caffe_model/MobileNetSSD_deploy.graph'
+    graph_file_name = cwd+'/../../models/caffe/MobileNetSSD_deploy.graph'
 
     # read in the graph file to memory buffer
     with open(graph_file_name, mode='rb') as f:
