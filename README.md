@@ -43,5 +43,7 @@ Software requirements for different hardwares
 	# TODO @mayank * Mobile Phone
   
  
-
+## Contributors
+ * [Arshdeep Singh](https://github.com/4rshdeep)
+ * [Mayank Singh Chauhan](https://github.com/mayanksingh2298)
     
