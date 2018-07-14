@@ -22,7 +22,7 @@ The following three object detection models were tested:-
 We'll talk about the following in order:-
 1. Installation
 2. Benchmarking
-3. Finding the [mAP](https://stackoverflow.com/a/37498432)) score
+3. Finding the [mAP](https://stackoverflow.com/a/37498432) score
 4. Profiling
 5. Energy values
 
