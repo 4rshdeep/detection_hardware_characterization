@@ -34,7 +34,7 @@ python tf_object_detection.py
 | Caffe | Tiny-YoloV2 | GPU computer | 11 | 16 | ~ 0 |
 | Caffe | Tiny-YoloV2 | Moto G4 Plus | 130 | 1364 | -- |
 | Caffe | Tiny-YoloV2 | Samsung S7 Edge | 27 | 232 | -- |
-| [Darknet]() | YoloV2 | GPU computer | -- | 17 | -- |
+| [Darknet](https://pjreddie.com/darknet/) | YoloV2 | GPU computer | -- | 17 | -- |
 | [Darknet](https://pjreddie.com/darknet/) | YoloV2 | Jetson | -- | 119 | -- |
 
 
