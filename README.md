@@ -36,16 +36,16 @@ We need to install some softwares to run the neural nets on a stock embedded dev
 	* [Google Protocol Buffers Compiler ](http://osdevlab.blogspot.com/2016/03/how-to-install-google-protocol-buffers.html)
 	* [API for Intel Movidius Stick](https://www.pyimagesearch.com/2018/02/12/getting-started-with-the-intel-movidius-neural-compute-stick/)
 *  NVIDIA Jetson TX2 Development Kit 
-    * NVIDIA JetPack SDK Version 3.2 
-    * BVLC Caffe 
-    * Tensorflow version > 1.4
-    * OpenCV version 3.4.1 built from sources
+    * [NVIDIA JetPack SDK Version 3.2](https://developer.nvidia.com/embedded/jetpack)
+    * [BVLC Caffe](https://jkjung-avt.github.io/caffe-on-tx2/)
+    * [Tensorflow version > 1.4](https://github.com/peterlee0127/tensorflow-nvJetson/releases)
+    * [OpenCV version 3.4.0](https://jkjung-avt.github.io/opencv3-on-tx2/)
 
 * GPU (NVIDIA GeForce GTX 1070)
-    *   BVLC Caffe
-    *   Tensorflow version > 1.4
-    *   Opencv version 3.4.1 built from sources
-    *    Intel® Movidius™ Neural Compute SDK for profiling, tuning and compiling trained models for NCS.
+    *   [BVLC Caffe](https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide)
+    *   [Tensorflow version > 1.4](https://www.tensorflow.org/install/install_linux)
+    *   [Opencv version 3.4.1](https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/) 
+    *   [Intel® Movidius™ Neural Compute SDK version 1](https://movidius.github.io/ncsdk/install.html) for profiling, tuning and compiling trained models for NCS.
     
 * Intel® Movidius™ Neural Compute Stick needs a host computer for inference which needs to have Intel® Movidius™ Neural Compute API installed and the stick does not have any other requirements.
 
