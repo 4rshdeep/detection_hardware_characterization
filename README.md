@@ -22,7 +22,7 @@ The following three object detection models were tested:-
 We'll talk about the following in order:-
 1. Installation
 2. Benchmarking
-3. Finding the mAP score
+3. Finding the [mAP](https://stackoverflow.com/a/37498432) score
 4. Profiling
 
 ## Installation 
@@ -51,8 +51,52 @@ We need to install some softwares to run the neural nets on a stock embedded dev
 
 	
 	# TODO @mayank * Mobile Phone
-  
+
+## Benchmarking
+
+## Finding the [mAP](https://stackoverflow.com/a/37498432) score
+In practice, a higher mAP value indicates a better performance, given your ground-truth and set of classes. We evaluate the performance using the mAP criterium defined in the [PASCAL VOC 2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) competition. 
+It involves first calculating the Average Precision(AP) for each of the class present in the ground-tructh and then taking mean of all the APs to get the mAP value.
+
+### How to calculate mAP score?
+* Create the ground-truth files
+* Move the ground-truth files into the folder ground-truth/
+* Create the predicted objects files
+* Move the predictions files into the folder predicted/
+* Run the code: python mAP.py or python mAP.py -na for running without any animationand YOLO files into the required format.
+
+### Creating ground-truth files
+* Create a separate ground-truth text file for each image.
+* Use matching names (e.g. image: "image_1.jpg", ground-truth: "image_1.txt"; "image_2.jpg", "image_2.txt"...).
+* In these files, each line should be in the following format:
+```<class_name> <left> <top> <right> <bottom>```
+* E.g. "image_1.txt":
+```
+tvmonitor 2 10 173 238
+book 439 157 556 241
+book 437 246 518 351
+pottedplant 272 190 316 259
+```
+### Creating predicted objects files
+* Create a separate predicted objects text file for each image.
+* Use matching names (e.g. image: "image_1.jpg", predicted: "image_1.txt"; "image_2.jpg", "image_2.txt"...).
+* In these files, each line should be in the following format:
+```<class_name> <confidence> <left> <top> <right> <bottom>```
+* E.g. "image_1.txt":
+```
+tvmonitor 0.471781 0 13 174 244
+cup 0.414941 274 226 301 265
+book 0.460851 429 219 528 247
+chair 0.292345 0 199 88 436
+book 0.269833 433 260 506 336
+```
+
+## Profiling
+
 ## Some important notes
+
+## Credits
+For computing [mAP](https://github.com/Cartucho/mAP) 
 
 ## Contributors
  * [Arshdeep Singh](https://github.com/4rshdeep)
