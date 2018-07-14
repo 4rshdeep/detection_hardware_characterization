@@ -32,7 +32,7 @@ We need to install some softwares to run the neural nets on a stock embedded dev
 	* [Ubuntu MATE 16.04.2 (Xenial)](https://ubuntu-mate.org/raspberry-pi/)
 	* [Tensorflow version > 1.4](https://github.com/lhelontra/tensorflow-on-arm)
 	* [BVLC Caffe](https://github.com/leo2105/Caffe-installation-Raspberry-Pi-3)
-	* OpenCV version 3.4.1 ARSHDEEP
+	* [penCV version 3.4.1](https://www.pyimagesearch.com/2017/10/09/optimizing-opencv-on-the-raspberry-pi/)
 	* [Google Protocol Buffers Compiler ](http://osdevlab.blogspot.com/2016/03/how-to-install-google-protocol-buffers.html)
 	* [API for Intel Movidius Stick](https://www.pyimagesearch.com/2018/02/12/getting-started-with-the-intel-movidius-neural-compute-stick/)
 *  NVIDIA Jetson TX2 Development Kit 
