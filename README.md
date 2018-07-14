@@ -28,20 +28,20 @@ We'll talk about the following in order:-
 ## Installation 
 We need to install some softwares to run the neural nets on a stock embedded device. In this section, we'll layout all the resources that we used to get our systems up and running.
 
-*  Raspberry Pi 3B
+*  Raspberry Pi 3B (running Ubuntu MATE 16.04.2)
 	* [Ubuntu MATE 16.04.2 (Xenial)](https://ubuntu-mate.org/raspberry-pi/)
 	* [Tensorflow version > 1.4](https://github.com/lhelontra/tensorflow-on-arm)
 	* [BVLC Caffe](https://github.com/leo2105/Caffe-installation-Raspberry-Pi-3)
 	* [OpenCV version 3.4.1](https://www.pyimagesearch.com/2017/10/09/optimizing-opencv-on-the-raspberry-pi/)
 	* [Google Protocol Buffers Compiler ](http://osdevlab.blogspot.com/2016/03/how-to-install-google-protocol-buffers.html)
 	* [API for Intel Movidius Stick](https://www.pyimagesearch.com/2018/02/12/getting-started-with-the-intel-movidius-neural-compute-stick/)
-*  NVIDIA Jetson TX2 Development Kit 
-    * [NVIDIA JetPack SDK Version 3.2](https://developer.nvidia.com/embedded/jetpack)
+*  NVIDIA Jetson TX2 Development Kit (running L4T 28.2.1)
+    * [NVIDIA JetPack SDK Version 3.2](https://developer.nvidia.com/embedded/jetpack) 
     * [BVLC Caffe](https://jkjung-avt.github.io/caffe-on-tx2/)
     * [Tensorflow version > 1.4](https://github.com/peterlee0127/tensorflow-nvJetson/releases)
     * [OpenCV version 3.4.0](https://jkjung-avt.github.io/opencv3-on-tx2/)
 
-* GPU (NVIDIA GeForce GTX 1070)
+* GPU (NVIDIA GeForce GTX 1070) (running Ubuntu 16.04.4 Xenial)
     *   [BVLC Caffe](https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide)
     *   [Tensorflow version > 1.4](https://www.tensorflow.org/install/install_linux)
     *   [Opencv version 3.4.1](https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/) 
