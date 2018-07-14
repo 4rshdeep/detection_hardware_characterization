@@ -62,14 +62,13 @@ The details about the mean average precision scores of different models can be f
 We have also tried to find the time taken to run each layer of the neural networks on different systems. The results along with the scripts can be found [here](https://github.com/4rshdeep/detection_hardware_characterization/tree/master/profiling).
 
 ## Energy Values
-A thorough study of embedded systems is incomplete if we donot provide data about the power and current consumption of different systems. We used [this](https://www.amazon.in/Digital-Monitor-Energy-Tester-14014816MG/dp/B01FW9D7SK) device to measure the current and power consumed by different systems as they were inferencing images. ARSHDEEP (add the link to the sheet)
-
+A thorough study of embedded systems is incomplete if we donot provide data about the power and current consumption of different systems. We used [this](https://www.amazon.in/Digital-Monitor-Energy-Tester-14014816MG/dp/B01FW9D7SK) device to measure the current and power consumed by different systems as they were inferencing images. Our measurements can be found [here](https://docs.google.com/spreadsheets/d/1iczdGxUa1CUo2ktnYTcld4G4u2EuL3XW1UQG0tV2sI0/edit?usp=sharing).
   
 ## Some important notes
 * We only need to install the `Intel® Movidius™ Neural Compute Stick API` on embedded systems to run a graph compiled for the neural compute stick. The complete `SDK` is installed on a computer where we can compile, profile and tune neural networks to run on a neural compute stick.
-* We chose to work with tiny yolo because the original yolo won't run on a Raspberry Pi CPU. The RAM was too small.
-* ssd chalane ko ek alag branch se install karna hota hai. ARSHDEEP handle this
-* The jetson can be overclocked to further increase its computation power. Unless otherwise stated, the overclocked mode was used to run the networks. ARSHDEEP add how to overclock
+* We chose to work with tiny-yolo v2 because the original yolo won't run on a Raspberry Pi CPU and was not supported by Movidius Stick. The limited RAM could not run any version of Yolo. We were able to run Yolo on Jetson and GPU. 
+* Since SSD has a seperate fork of Caffe, hence we had to install [this](https://github.com/weiliu89/caffe/tree/ssd) fork of caffe.
+* The jetson can be overclocked to further increase its computation power. Unless otherwise stated, the overclocked mode was used to run the networks. To overclock jetson first run the `jetson_clocks.sh` present in the home directory. It is installed by the Jetpack. This script would raise both cpu and gpu clock. Also running `nvpmodel -m0` will enable all 6 CPUs including the Denver ones (cpu 1 and 2). Not really CUDA related, but in some CPU consumer limited cases it may improve.
 * Neural Compute Stick doesn't yet support the tensorflow version of SSD-Mobilenet as of June 2018. [Reference](https://ncsforum.movidius.com/discussion/667/tensorflow-ssd-mobilenet)
 * We weren't able to profile and find energy values for android device.
 
