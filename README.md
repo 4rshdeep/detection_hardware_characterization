@@ -53,7 +53,7 @@ We need to install some softwares to run the neural nets on a stock embedded dev
 	* [Tensorflow models](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android)
 	
 ## Benchmarking
-We have benchmarked the models on different systems and calculated the time taken to `read the image`, `infer the image` and `visualize the image`. The results along with the scripts are documeneted [here](https://github.com/4rshdeep/detection_hardware_characterization/tree/master/benchmark).
+We have benchmarked the models on different systems and calculated the time taken to `read the image`, `infer the image` and `visualize the image`. The results along with the scripts are documented [here](https://github.com/4rshdeep/detection_hardware_characterization/tree/master/benchmark).
 
 ## Finding the mAP score
 The details about the mean average precision scores of different models can be found [here](https://github.com/4rshdeep/detection_hardware_characterization/tree/master/mAP).
